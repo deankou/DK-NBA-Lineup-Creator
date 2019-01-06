@@ -12,10 +12,14 @@ tables = pd.read_html(injurySite)
 df = tables[0]
 outsListDirty = df["Player"].values
 outs = []
-for player in outsListDirty:
-    outs.append(player.rsplit('  ', 1)[1])
+for players in outsListDirty:
+    outs.append(players.rsplit('  ', 1)[1])
 
+alsoRemove = ["Carmelo Anthony",
+              "Chris Paul",]
 
+for players in alsoRemove:
+    outs.append(players)
 
 
 injuries = []
